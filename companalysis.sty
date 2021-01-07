@@ -1,0 +1,67 @@
+% This package defines commands and a template for homeworks in
+% Computer Science Theory (CSCI 338 at Montana State University)
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{analysis}[2020/08/17 Custom HW Template Package]
+
+\RequirePackage[margin=1in]{geometry}
+\RequirePackage{titlesec}
+\RequirePackage{enumitem}
+\RequirePackage{amssymb,amsmath}
+\RequirePackage{times,psfrag,epsf,epsfig,graphics,graphicx}
+\RequirePackage{algorithm}
+\RequirePackage{algorithmic}
+\RequirePackage{tikz}
+
+% Options would go in this spot
+%\DeclareOption...
+
+%\ProcessOptions
+
+\titleformat{\subsection}[runin]
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+\newcommand{\coverpage}[1] {
+	\title{M 383: Assignment~#1}
+	\author{Nathan Stouffer}
+	\date{}
+	\maketitle
+}
+
+\newcommand{\header}[2] {
+	\section*{Exercises #1 --- Problem #2}
+}
+
+\newcommand{\problem}[1]{
+	\noindent\textit{Problem.} #1 \\\\
+}
+
+\newcommand{\proof}[1]{
+	\noindent\textit{Proof.} #1
+}
+
+%% environment for an exercise
+
+\newenvironment{exercise}[2]
+	{
+		\newpage
+		\header{#1}{#2}
+	}
+	{
+
+	}
+
+%% useful commands for short hand
+
+% command for spacing out paragraphs in proofs
+\newcommand{\parspace}{\newline\newline\noindent}
+
+\newcommand{\triplecdot}{\cdot \cdot \cdot}				% triple center dots
+
+\newcommand{\N}{\mathbb{N}}								% symbol for the natural numbers
+\newcommand{\Z}{\mathbb{Z}}								% symbol for the integers
+\newcommand{\Q}{\mathbb{Q}}								% symbol for the rationals
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\B}{\mathbb{B}}
+
+\endinput
