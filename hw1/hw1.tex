@@ -1,0 +1,73 @@
+\documentclass[11pt]{exam}
+\usepackage{amsmath,amssymb}
+%\usepackage[margin=1.5in]{geometry}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathbb{\hat{C}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\ds}{\displaystyle}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\begin{document}
+\centerline{\Large M 472 -- Homework 1 -- Complex numbers}
+\vspace{1ex}
+\centerline{Nathan Stouffer}
+\vspace{1ex}
+\centerline{Due on January 20 on Gradescope}
+\vspace{3ex}
+%\maketitle
+\thispagestyle{empty}
+\begin{questions}
+\question Perform the following calculations and express the answer
+in the form $x+iy$.
+\begin{parts}
+  \part $(3-2i)-i(4+5i)$
+  \part $(7-2i)(5+3i)$
+  \part $(i-1)^3$
+  \part $\ds \frac{1+2i}{3-4i} - \frac{4-3i}{2-i}$
+\end{parts}
+
+\question Find the principal argument $\Arg z$
+for
+\begin{parts}
+  \part $\ds z=\frac{-3}{4+4i}$
+  \part $z=\left( -\sqrt{3}+i \right)^5$
+\end{parts}
+
+\question Find the square roots of
+\begin{parts}
+  \part $z=4i$
+  \part $z=-1+\sqrt{3}i$
+\end{parts}
+and express them in rectangular coordinates.
+
+\question Find and sketch the three cube roots of $z=-2+2i$. (Hint:
+They should form the vertices of an equilateral triangle centered at
+zero.)
+
+\question Assuming that $|z_3| \ne |z_4|$, show that
+\[
+  \frac{ \re(z_1+z_2)}{|z_3+z_4|} \le \frac{|z_1| +
+    |z_2|}{||z_3|-|z_4|}.
+\]
+
+\question Use de Moivre's formula to derive the trigonometric
+identities
+\begin{align*}
+  \cos (3\theta) &= \cos^3 \theta - 3 \cos \theta \, \sin^2 \theta, \\
+  \sin (3\theta) &= 3 \cos^2 \theta \, \sin \theta -  \sin^3 \theta.
+\end{align*}
+
+\question In each case, sketch the set of points determined by the
+given condition.
+\begin{parts}
+  \part $|z-2+i| \le 1$
+  \part $|2z+3| > 4$
+  \part $|z-1| < |z+i|$
+  \part $(\re z) (\im z) > 1$
+  \part $0 < \arg z < \pi/4$
+\end{parts}
+\end{questions}
+\end{document}
