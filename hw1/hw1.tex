@@ -42,8 +42,13 @@ in the form $x+iy$.
 \question Find the principal argument $\Arg z$
 for
 \begin{parts}
-  \part $\ds z=\frac{-3}{4+4i}$
-  \part $z=\left( -\sqrt{3}+i \right)^5$
+  \part $\ds z=\frac{-3}{4+4i}$: \\\\
+  $\ds z = \frac{-3}{4+4i} = \frac{1}{4} \frac{-3}{1+1i} \frac{1-1i}{1-1i} = \frac{1}{4} \frac{-3+3i}{2} = 3/8 - 3/8i$ \\\\
+  $\Arg z = \arctan((-3/8)/(3/8)) = \arctan(-1) = -\pi /4$
+  \part $z=\left( -\sqrt{3}+i \right)^5$: \\
+        Let $w = -\sqrt{3}+i$, then $w_r = \sqrt{w \bar{w}} = \sqrt{3+1} = 2$ and $\Arg w = \arctan (-1/\sqrt{3}) = 5\pi /6$.
+        Then $w = 2 \exp(i5\pi /6)$ and $z = w^5 = 2^5 \exp(5*i5\pi /6) = 32 \exp(25\pi /6) = 32 \exp(\pi /6)$.
+        So $\Arg z = \pi /6$.
 \end{parts}
 
 \question Find the square roots of
@@ -62,9 +67,37 @@ zero.)
   \frac{ \re(z_1+z_2)}{|z_3+z_4|} \le \frac{|z_1| +
     |z_2|}{||z_3|-|z_4|}.
 \]
+To show the above inequality, the numerator on the RHS is larger than the numerator on the LHS and the denominator on the RHS is less than the denominator on the LHS.
+We first show that $\re (z_1 + z_2) \leq |z_1| + |z_2|$.
+Consider $\re (z_1 + z_2) = \re (x_1 + iy_1) + (x_2 + iy_2) = \re (x_1 + x_2 + i(y_1 + y_2)) = x_1 + x_2$.
+Then $x_1 + x_2 \leq \sqrt{x_1^2} + \sqrt{x_2^2} \leq \sqrt{x_1^2 + y_1^2} + \sqrt{x_2^2 + t_2^2} = |z_1| + |z_2|$.
+Then we can show that $|z_3 + z_4| \geq ||z_3| - |z_4||$.
+Beginning with $|z_3 + z_4| = |z_3 - -z_4| \geq ||z_3| - |-z_4|| = ||z_3| - |z_4||$.
+Since $|z_3| \ne |z_4|$, the denomonitor on the RHS is not 0, so the expression is defined.
+Therefore,
+\[
+  \frac{ \re(z_1+z_2)}{|z_3+z_4|} \le \frac{|z_1| +
+    |z_2|}{||z_3|-|z_4|}.
+\]
 
 \question Use de Moivre's formula to derive the trigonometric
 identities
+\begin{align*}
+  \cos (3\theta) &= \cos^3 \theta - 3 \cos \theta \, \sin^2 \theta, \\
+  \sin (3\theta) &= 3 \cos^2 \theta \, \sin \theta -  \sin^3 \theta.
+\end{align*}
+We begin with $\exp (i\theta) = \cos \theta + i \sin \theta$.
+Then $\exp (i3\theta) = (\cos \theta + i \sin \theta)^3$.
+Expanding the RHS,
+\begin{align*}
+    (\cos \theta + i \sin \theta)^3
+    &= \cos ^3 \theta + 3 \cos ^2 \theta (i \sin \theta) + 3 \cos \theta (i \sin \theta)^2 + (i \sin \theta)^3 \\
+    &= \cos ^3 \theta + i3 \cos ^2 \theta \sin \theta + i^2 3 \sin ^2 \theta \cos \theta + i^3 \sin ^3 \theta \\
+    &= \cos ^3 \theta - 3 \sin ^2 \theta \cos \theta + i(3 \cos ^2 \theta \sin \theta - \sin ^3 \theta)
+\end{align*}
+Then the LHS is $\exp (i3\theta) = \cos (3 \theta) + i \sin (3 \theta)$.
+Since the LHS must equal the RHS, the real and imaginary parts of each side must match.
+This gives us
 \begin{align*}
   \cos (3\theta) &= \cos^3 \theta - 3 \cos \theta \, \sin^2 \theta, \\
   \sin (3\theta) &= 3 \cos^2 \theta \, \sin \theta -  \sin^3 \theta.
