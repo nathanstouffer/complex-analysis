@@ -45,8 +45,8 @@ in the form $x+iy$.
 for
 \begin{parts}
   \part $\ds z=\frac{-3}{4+4i}$: \\\\
-  $\ds z = \frac{-3}{4+4i} = \frac{1}{4} \frac{-3}{1+1i} \frac{1-1i}{1-1i} = \frac{1}{4} \frac{-3+3i}{2} = 3/8 - 3/8i$ \\\\
-  $\Arg z = \arctan((-3/8)/(3/8)) = \arctan(-1) = -\pi /4$ \\
+  $\ds z = \frac{-3}{4+4i} = \frac{1}{4} \frac{-3}{1+1i} \frac{1-1i}{1-1i} = \frac{1}{4} \frac{-3+3i}{2} = -3/8 + 3/8i$ \\\\
+  $\Arg z = \arctan((3/8)/(-3/8)) = \arctan(-1) = 3\pi /4$ \\
   \part $z=\left( -\sqrt{3}+i \right)^5$: \\
         Let $w = -\sqrt{3}+i$, then $w_r = \sqrt{w \bar{w}} = \sqrt{3+1} = 2$ and $\Arg w = \arctan (-1/\sqrt{3}) = 5\pi /6$.
         Then $w = 2 \exp(i5\pi /6)$ and $z = w^5 = 2^5 \exp(5*i5\pi /6) = 32 \exp(25\pi /6) = 32 \exp(\pi /6)$.
@@ -76,8 +76,8 @@ $z = -2 + 2i = \sqrt{8} \exp (i3\pi /4)$.
 We seek $\sqrt[3]{z} = w$.
 So $w^3 = r^3 \exp (i3\theta) = \sqrt{8} \exp (i3\pi /4)$.
 Then we must have $r^3 = \sqrt{8} \implies r = \sqrt{2}$ and $(i3\theta) = \exp (i3\pi /4) \implies 3\theta = 3\pi /4 + 2\pi k$ for $k \in \Z$.
-This gives $\theta  = \pi /4 + 2\pi /3 k$.
-So $\sqrt{z} = w_k = \sqrt{2} \exp(i\pi /4) \exp (i2\pi /3k)$.
+This gives $\theta  = \pi /4 + 2k\pi /3 $.
+So $\sqrt{z} = w_k = \sqrt{2} \exp(i\pi /4) \exp (i2k\pi /3)$.
 On a graph, these are:
 
 \begin{center}
@@ -108,7 +108,7 @@ On a graph, these are:
 To show the above inequality, we show that the numerator on the RHS is greater than the numerator on the LHS and the denominator on the RHS is less than the denominator on the LHS.
 We first show that $\re (z_1 + z_2) \leq |z_1| + |z_2|$.
 Consider $\re (z_1 + z_2) = \re (x_1 + iy_1) + (x_2 + iy_2) = \re (x_1 + x_2 + i(y_1 + y_2)) = x_1 + x_2$.
-Then $x_1 + x_2 \leq \sqrt{x_1^2} + \sqrt{x_2^2} \leq \sqrt{x_1^2 + y_1^2} + \sqrt{x_2^2 + t_2^2} = |z_1| + |z_2|$.
+Then $x_1 + x_2 \leq \sqrt{x_1^2} + \sqrt{x_2^2} \leq \sqrt{x_1^2 + y_1^2} + \sqrt{x_2^2 + y_2^2} = |z_1| + |z_2|$.
 Then we can show that $|z_3 + z_4| \geq ||z_3| - |z_4||$.
 Beginning with $|z_3 + z_4| = |z_3 - -z_4| \geq ||z_3| - |-z_4|| = ||z_3| - |z_4||$.
 Since $|z_3| \ne |z_4|$, the denomonitor on the RHS is not 0, so the expression is defined.
@@ -190,11 +190,13 @@ given condition.
         \end{center}
   \part $(\re z) (\im z) > 1$ \\
         $(\re z) (\im z) > 1 \iff xy > 1 $
+        Then we split into two cases: $x < 0$ and $x > 0$.
+        If $x < 0$, we want $y < 1/x$ and if $x > 0$ we want $ y > 1/x$.
         \begin{center}
         \begin{tikzpicture}
-            \draw[domain=-4:-0.25, pattern=crosshatch, pattern color=gray!60] plot (\x,1/\x) -- (0,-4) -- (0,4) -- (-4,4);
+            \draw[domain=-4:-0.25, pattern=crosshatch, pattern color=gray!60] plot (\x,1/\x) -- (-4,-4) -- (-4,-0.25);
             \draw[domain=0.25:4, pattern=crosshatch, pattern color=gray!60] plot (\x,1/\x) -- (4,4) -- (0.25,4);
-            \draw[color=white, domain=-4:-0.25] plot (\x,1/\x) -- (0,-4) -- (0,4) -- (-4,4);
+            \draw[color=white, domain=-4:-0.25] plot (\x,1/\x) -- (-4,-4) -- (-4,-0.25);
             \draw[color=white, domain=0.25:4] plot (\x,1/\x) -- (4,4) -- (0.25,4);
             \draw[<->] (-4,0) -- (4,0) node[anchor=south west] {$x$};
             \draw[<->] (0,-4) -- (0,4) node[anchor=south west] {$y$};
