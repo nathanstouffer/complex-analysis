@@ -1,0 +1,63 @@
+\documentclass[11pt]{exam}
+\usepackage{amsmath,amssymb}
+%\usepackage[margin=1.5in]{geometry}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathbb{\hat{C}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\ds}{\displaystyle}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\begin{document}
+\centerline{\Large M 472 -- Homework 2 -- Complex functions and differentiation}
+\vspace{2ex}
+\centerline{Due Monday, February 1, on Gradescope}
+\vspace{3ex}
+%\maketitle
+\thispagestyle{empty}
+\begin{questions}
+\question Find a domain in the $z$-plane whose image under the
+transformation $w=z^2$ is the square domain in the $w$-plane
+bounded by the lines $u=1$, $u=2$, $v=1$, and $v=2$. (See
+Section 14 in the textbook.)
+
+\question Show that the function $\ds f(z) = \left( \frac{z}
+{\bar{z}} \right)^2$ has the value $1$ at all nonzero points on
+the real and imaginary axes, but that it has the value $-1$
+at all nonzero points on the line $x=y$. Conclude that the
+limit of $f(z)$ as $z$ tends to $0$ does not exist.
+
+\question Let $f$ be the function defined by
+\[
+f(z) = 
+\begin{cases}
+  \bar{z}^2/z & \text{ when } z \ne 0, \\
+  0 & \text{ when } z=0.
+\end{cases}
+\]
+Show that if $z=0$, then $\Delta w / \Delta z = 1$ at each
+nonzero point on the real and imaginary axes in the
+$\Delta z$-plane. Then show that $\Delta w/ \Delta z = -1$ at
+each nonzero point on the line $\Delta x = \Delta y$.
+Conclude that $f'(0)$ does not exist. Note that to obtain this
+result it is not sufficient to consider only horizontal and
+vertical approaches to the origin in the $\Delta z$-plane.
+
+\question Show from the definition of complex derivatives that
+the functions $f(z) = \re z$ and $g(z) = \im z$ are not
+complex differentiable at any point in the plane.
+
+\question Using the definitions, rules for derivatives, or the
+Cauchy-Riemann equations, determine where
+the following functions are complex differentiable and find
+$f'(z)$ where it exists.
+\begin{parts}
+  \part $f(z) = 1/(z^2+1)$,
+  \part $f(z) = x^2 + iy^2 $,
+  \part $f(z) = \sin x \cosh y - i \cos x \sinh y$,
+  \part $f(z) = \sin x \cosh y + i \cos x \sinh y$.
+\end{parts}
+\end{questions}
+\end{document}
