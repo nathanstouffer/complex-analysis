@@ -23,7 +23,14 @@
 \question Find a domain in the $z$-plane whose image under the
 transformation $w=z^2$ is the square domain in the $w$-plane
 bounded by the lines $u=1$, $u=2$, $v=1$, and $v=2$. (See
-Section 14 in the textbook.)
+Section 14 in the textbook.) \\\\
+We will identify the domain in the z-plane by finding the pre-image of the boundaries in the w plane.
+First consider the line $w = 1 + iv = \sqrt{1 + v^2} \exp (i \arctan (v))$, taking the square root we get $z_1 = (1 + v^2)^{1/4} \exp (i (1/2) \arctan (v))$ for $v \in [1, 2]$.
+Similarly for $w = 2 + i v$, we obtain $z_2 = (4 + v^2)^{1/4} \exp (i (1/2) \arctan (v/2))$ for $v \in [1,2]$.
+For the horizontal lines, we begin with $w = u + i = \sqrt{u^2 + 1} \exp (i \arctan(1/x))$.
+Taking a square root, we get $z_3 = (u^2 + 1)^{1/4} \exp (i (1/2 \arctan (1/x)))$ for $u \in [1,2]$.
+Similarly for $w = u + i2$ we have $z_4 = (u^2 + 4)^{1/4} \exp (i (1/2 \arctan (2/x)))$ for $u \in [1,2]$.
+So the preimage of the square in question is the region bounded by $z_1, z_2, z_3,$ and $z_4$.
 
 \question Show that the function $\ds f(z) = \left( \frac{z}
 {\bar{z}} \right)^2$ has the value $1$ at all nonzero points on
