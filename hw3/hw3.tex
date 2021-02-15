@@ -17,42 +17,71 @@
 \vspace{1ex}
 \centerline{Nathan Stouffer}
 \vspace{3ex}
-\centerline{Due Friday, February 12, on Gradescope}
+\centerline{Due Wednesday, February 17, on Gradescope}
 \vspace{3ex}
 %\maketitle
 \thispagestyle{empty}
 \begin{questions}
   \question Assume that a function $f$ is analytic in a domain $D$,
   and that $f$ is real-valued. Show that $f$ must be a constant
-  function. (Hint: Use the Cauchy-Riemann equations.)
+  function. (Hint: Use the Cauchy-Riemann equations.) \\\\
+  A function $f$ is analytic on an open set $D$ if $f$ is complex differentiable at all $z_0 \in D$.
+  Since $f$ is complex differentiable on $D$, it satisfies the Cauchy-Riemann equations.
+  Namely, for $f = u + iv$ we must have $u_x = v_y$ and $v_x = - u_y$.
+  But since $f$ is real-valued, $v_x = v_y = 0$ so we konw $u_x = u_y = 0$.
+  But then $u$ must be constant, for if it were not, then one the partial derivatives would be non-zero.
 
   \question Find all values of $z$ such that
   \begin{parts}
-    \part $e^z = -1+i$,
-    \part $e^z$ is purely imaginary,
-    \part $|e^z|<e^2$.
+    \part $e^z = -1+i$ \\
+    $e^z = e^{x+iy} = e^x e^{iy} = e^x (\cos y + i \sin y) = e^x \cos y + i e^x \sin y = -1 + i$.
+    Equivalently, we must have $e^x \cos y = -1$ and $e^x \sin y = 1$.
+    Then $- e^x \cos y = e^x \sin y$, but since $e^x \neq 0$ for all $x \in \R$ we must satisfy $- \cos y = \sin y \implies y = 3\pi /4 + 2 \pi n$ for $n \in \Z$ (since we are in the second quadrant).
+    But we must also have $e^x \cos y = -1$.
+    Since $y$ is $3 \pi / 4$ plus and integer multiple of $2 \pi$, $\cos y = - 1/ \sqrt{2}$ so we must have $e^ = \sqrt{2}$, equivalently, $x = \ln \sqrt{2}$.
+    Therefore, $z = \ln \sqrt{2} + i (3 \pi /4 + 2 \pi n)$ for any integer $n$.
+    \part $e^z$ is purely imaginary \\
+    We must have $e^z = e^x \cos y + i e^x \sin y = ib$.
+    This is true if and only if $e^x \cos y = 0$ but we already noted $e^x \neq 0$ for all $x \in \R$ so the solutions are equivalent to that of $\cos y = 0$ which we know to be $\pi / 2 + n\pi$ for any integer $n$.
+    Thus the solutions are $z = x + i (\pi /2 + 2 \pi n)$ for $x \in \R$ and $n \in \Z$.
+    \part $|e^z|<e^2$ \\
+    Note that $| e^z | = | e^x | | \cos y + i \sin y| = |e^x| * 1 = e^x$.
+    So we must have $z = x + iy$ where $x < 2$.
   \end{parts}
+
 
   \question Find $\Log(i^3)$ and $\Log i$, and show that $\Log(i^3)
-  \ne 3 \Log i$.
+  \ne 3 \Log i$. \\\\
+  Let's begin with $\Log (i^3) = \Log (-i) = \ln |-i| + i \Arg (-i) = \ln 1  - i \pi /2 = - i \pi /2$.
+  Then $\Log i = \ln |i| + i \Arg i = \ln 1 + i \pi /2 = i \pi /2$.
+  Certainly $- i \pi /2 \neq i \pi /2$ so $\Log(i^3) \ne 3 \Log i$.
 
   \question
   \begin{parts}
-    \part Find a complex number $z$ such that $\Log(e^z) \ne z$.
+    \part Find a complex number $z$ such that $\Log(e^z) \ne z$. \\
+    Choose $z = 1 + i 3 \pi / 2$.
+    Then $\Log (e^z) = \ln |e^z| + i \Arg (e^z) = \ln (e^1) + i \Arg (e^{3 \pi / x}) = 1 - i\pi /2 \neq z$.
     \part For which complex numbers $z$ does the equality $\Log(e^z) =
-    z$ hold?
+    z$ hold? \\
+    $\Log (e^z) = \ln |e^z| + i \Arg (e^z) = \ln e^x + i \Arg e^{iy} = x + i\theta$ where $\theta \in (-\pi , \pi]$ and $y = \theta + 2 \pi k$ for some $k \in Z$.
+    Thus for $z \in \{ x + iy \mid y \in (-\pi, \pi] \} \subset \C$ we have $\Log (e^z) = z$.
   \end{parts}
 
   \question
   \begin{parts}
-    \part Find the principal value of $(-1+i)^i$.
-    \part Find all values of $(-1+i)^i$.
+    \part Find the principal value of $(-1+i)^i$ \\
+    Principal value: $(-1 + i)^i = \exp (i \Log (-1+i)) = \exp (i[\ln |-1+i| + i \Arg (-1+i)]) = \exp (i[\ln \sqrt{2} + i3 \pi /4]) = \exp (-3 \pi /4 + i \ln \sqrt{2}) $.
+    \part Find all values of $(-1+i)^i$ \\
+    To find all values of $(-1 + i)^i$, we just use $\arg$ instead of $\Arg$ in the above sub-problem.
+    This gives $\arg (-1 + i) = 3 \pi /4 + 2 \pi n$ for $n \in Z$ and $(-1+i)^i = \exp (i[\ln \sqrt{2} + i(3\pi /4 + 2 \pi n)]) = \exp (-(3\pi / 4 + 2 \pi n) + i \ln \sqrt{2})$.
   \end{parts}
 
   \question Find all values $z$ such that
   \begin{parts}
-    \part $\sin z = 2$,
-    \part $\sin z = 2i$.
+    \part $\sin z = 2$ \\
+    To solve for $z$, we have $w = 2$ in the formula $z = -i \log (iw + \sqrt{1 - w^2}) = -i \log (i (2 + \sqrt{3})) = -i [ \ln | i (2 + \sqrt{3})| + i \arg (i (2 + \sqrt{3}))] = -i [ \ln (2+\sqrt{3}) + i (\pi /2 + 2 \pi n)] = \pi/2 + 2\pi n - i \ln (2 + \sqrt{3}) $.
+    \part $\sin z = 2i$ \\
+    Similarly to the previous subproblem, we have $w = 2i$ in $z = -i \log (iw + \sqrt{1 - w^2}) = -i \log (-2 + \sqrt{5}) =-i [ \ln |-2 + \sqrt{5}| + i\arg (-2 + \sqrt{5})] = -i [\ln (-2 + \sqrt{5}) + i 2 \pi n] = 2\pi n - i \ln (-2 + \sqrt{5}) $
   \end{parts}
 
 
