@@ -1,0 +1,50 @@
+\documentclass[11pt]{exam}
+\usepackage{amsmath,amssymb}
+%\usepackage[margin=1.5in]{geometry}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathbb{\hat{C}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\ds}{\displaystyle}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\begin{document}
+\centerline{\Large M 472 -- Homework 4}
+\vspace{2ex}
+\centerline{\Large Integrals}
+\vspace{3ex}
+\centerline{Due Monday, March 1, on Gradescope}
+\vspace{3ex}
+%\maketitle
+\thispagestyle{empty}
+\begin{questions}
+  \question Let $a$ and $R$ be positive real numbers, let $C$ be
+  the positively oriented circle of radius $R$ about the origin, and
+  let $f(z) = z^{a-1} = \exp[(a-1) \Log z]$ be the principal branch of
+  the power function $z^{a-1}$. Find $\ds \int_C f(z) \, dz$.
+  
+  \question Let $T$ be the triangle with vertices $0$, $1$, and
+  $1+i$.
+  \begin{parts}
+    \part Evaluate the integrals $\ds \int_{\partial T} x \, dz$ and
+    $\ds \int_{\partial T} y \, dz$.
+    \part Use the results from part (a) to find $\ds \int_{\partial T} z
+    \, dz$ and $\ds \int_{\partial T} \bar{z} \, dz$.
+    \part One of the integrals in part (b) can be evaluated without
+    explicit integration, using instead a theorem from
+    class/textbook. Explain and use this to double-check your result.
+  \end{parts}
+
+  \question For $R>1$, let $C_R$ be the positively oriented circle of
+  radius $R$ about the origin.
+  \begin{parts}
+    \part Show that $\ds \left| \int_{C_R} \frac{\Log z}{z^2} \, dz
+    \right| \le 2\pi \left( \frac{\pi + \ln R}{R}\right)$.
+    \part Conclude that $\ds \lim_{R\to\infty} \int_{C_R} \frac{\Log
+      z}{z^2} \, dz = 0$.
+  \end{parts}
+  
+\end{questions}
+\end{document}
