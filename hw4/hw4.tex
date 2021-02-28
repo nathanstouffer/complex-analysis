@@ -23,8 +23,23 @@
   \question Let $a$ and $R$ be positive real numbers, let $C$ be
   the positively oriented circle of radius $R$ about the origin, and
   let $f(z) = z^{a-1} = \exp[(a-1) \Log z]$ be the principal branch of
-  the power function $z^{a-1}$. Find $\ds \int_C f(z) \, dz$.
-  
+  the power function $z^{a-1}$. Find $\ds \int_C f(z) \, dz$. \\\\
+  Let's begin by paramatrizing $C: z(t) = R e^{it}$ where $- \pi \leq t \leq \pi$, then $dz = iR e^{it} dt$.
+  Then $\int _C f(z) dz = \int _C z^{a-1} dz = \int _C \exp [(a-1) \Log z] dz = \int _{-\pi}^\pi \exp [(a-1) \Log (Re^{it})] iR e^{it} dt$.
+  Since $t \in [\pi, \pi]$ we know $\Log (Re^{it}) = \ln R + it$.
+  Now consider the following calculations
+  \begin{align*}
+      \int _{-\pi}^\pi \exp [(a-1) \Log (Re^{it})] iR e^{it} dt &= iR \int _{-\pi}^\pi e^{(a-1) (\ln R + it)} e^{it} dt \\
+      &= iR \int _{-\pi}^\pi e^{\ln R^{a-1}} e^{i(a-1)t} e^{it} dt \\
+      &= iR R^{a-1} \int _{-\pi}^\pi e^{iat} dt \\
+      &= \left. i R^a \left( \frac{1}{ia} e^{iat} \right) \right| _{-\pi}^\pi \\
+      &= \frac{R^a}{a} \left[ e ^{ia\pi} - e^{-ia\pi} \right] \\
+      \int _C z^{a-1} dz &= i \frac{2R^a}{a} \sin (a \pi)
+  \end{align*}
+
+  where the last equality is justified by $e ^{ia\pi} - e^{-ia\pi} = (\cos (a\pi) + i \sin (a\pi)) - (\cos (-a\pi) + i \sin (-a\pi)) = \cos (a\pi) + i \sin (a\pi) - \cos (a\pi) + i\sin (a\pi) = i2 \sin (a\pi)$.
+  Note that this aligns with the fact that $z^a$ is analytic (its integral is 0 around closed loops) when $a$ is a natural number.
+
   \question Let $T$ be the triangle with vertices $0$, $1$, and
   $1+i$.
   \begin{parts}
@@ -45,6 +60,6 @@
     \part Conclude that $\ds \lim_{R\to\infty} \int_{C_R} \frac{\Log
       z}{z^2} \, dz = 0$.
   \end{parts}
-  
+
 \end{questions}
 \end{document}
