@@ -24,14 +24,14 @@
   the positively oriented circle of radius $R$ about the origin, and
   let $f(z) = z^{a-1} = \exp[(a-1) \Log z]$ be the principal branch of
   the power function $z^{a-1}$. Find $\ds \int_C f(z) \, dz$. \\\\
-  Let's begin by paramatrizing $C: z(t) = R e^{it}$ where $- \pi \leq t \leq \pi$, then $dz = iR e^{it} dt$.
-  Then $\int _C f(z) dz = \int _C z^{a-1} dz = \int _C \exp [(a-1) \Log z] dz = \int _{-\pi}^\pi \exp [(a-1) \Log (Re^{it})] iR e^{it} dt$.
+  Let's begin by paramatrizing $C: z(t) = R e^{it}$ where $- \pi \leq t \leq \pi$, then $dz = iR e^{it} \, dt$.
+  Then $\int _C f(z) dz = \int _C z^{a-1} dz = \int _C \exp [(a-1) \Log z] dz = \int _{-\pi}^\pi \exp [(a-1) \Log (Re^{it})] iR e^{it} \, dt$.
   Since $t \in [\pi, \pi]$ we know $\Log (Re^{it}) = \ln R + it$.
   Now consider the following calculations
   \begin{align*}
-      \int _{-\pi}^\pi \exp [(a-1) \Log (Re^{it})] iR e^{it} dt &= iR \int _{-\pi}^\pi e^{(a-1) (\ln R + it)} e^{it} dt \\
-      &= iR \int _{-\pi}^\pi e^{\ln R^{a-1}} e^{i(a-1)t} e^{it} dt \\
-      &= iR R^{a-1} \int _{-\pi}^\pi e^{iat} dt \\
+      \int _{-\pi}^\pi \exp [(a-1) \Log (Re^{it})] iR e^{it} \, dt &= iR \int _{-\pi}^\pi e^{(a-1) (\ln R + it)} e^{it} \, dt \\
+      &= iR \int _{-\pi}^\pi e^{\ln R^{a-1}} e^{i(a-1)t} e^{it} \, dt \\
+      &= iR R^{a-1} \int _{-\pi}^\pi e^{iat} \, dt \\
       &= \left. i R^a \left( \frac{1}{ia} e^{iat} \right) \right| _{-\pi}^\pi \\
       &= \frac{R^a}{a} \left[ e ^{ia\pi} - e^{-ia\pi} \right] \\
       \int _C z^{a-1} dz &= i \frac{2R^a}{a} \sin (a \pi)
@@ -44,21 +44,60 @@
   $1+i$.
   \begin{parts}
     \part Evaluate the integrals $\ds \int_{\partial T} x \, dz$ and
-    $\ds \int_{\partial T} y \, dz$.
+    $\ds \int_{\partial T} y \, dz$. \\\\
+    First let's parametrize the boundary of the triangle $T$.
+    For all parametrizations, let $0 \leq t \leq 1$.
+    For $C_1$ we have $z_1 (t) = t  $ and $dz_1 = 1 \, dt$.
+    The curve $C_2$ is parametrized by $z_2 (t) = 1 + it$ which gives $dz_2 = i \, dt$.
+    Finally, $C_3$ is $z_3 (t) = \sqrt{2} (1-t) e ^{i\pi / 4}$ and $dz_3 = - \sqrt{2} e ^{i\pi/4} \, dt$. \\\\
+    Before going on, note that $\re \left( \sqrt{2} (1-t) e^{i \pi /4 } \right) = \im \left( \sqrt{2} (1-t) e^{i\pi / 4} \right)$ since any $z$ with $\theta = \pi /4$ must satisfy $y=x$.
+    Further, $\re \left( \sqrt{2} (1-t) e^{i\pi /4} \right) = \sqrt{2} (1-t) \cos (\pi /4) = \sqrt{2} (1-t) \sqrt{2}/2 = 1-t$. \\\\
+    Using the above parametrizations of $\partial T$, we have $\int _{\partial T} x dz = \int _{C_1} x dz + \int _{C_2} x dz + \int _{C_3} x dz = \int _0^1 t \, dt + \int _0^1 1 i\, dt + \int _0^1 \re \left( \sqrt{2} (1-t) e^{i\pi /4} \right) \left( - \sqrt{2} e^{i\pi /4} \, dt \right)$.
+    We know $\int _0^1 t \, dt = 1/2$ and $\int _0^1 1 i \, dt = i$ and
+    \begin{align*} 
+        \int _0^1 \re \left( \sqrt{2} (1-t) e^{i\pi /4} \right) \left( - \sqrt{2} e^{i\pi /4} \, dt \right) &= \int _0^1 (1-t) \left( -\sqrt{2} e^{i\pi /4}\right) \, dt \\
+        &= \int _0^1 (t-1) (1+i) \, dt \\
+        &= \int _0^1 t-1 \, dt + i \int _0^1 t-1 \, dt
+        &= -1/2 - i/2
+    \end{align*}
+    Thus $\int _{\partial T} x dz = 1/2 + i - 1/2 - i/2 = i/2 $ \\\\
+    Now let's consider $\int _{\partial T} y dz = \int _{C_1} y dz + \int _{C_2} y dz = \int _{C_3} y dz$.
+    With our parametrizations, we have $\int _{C_1} y dz = \int _0^1 0 \, dt = 0$, $\int _{C_2} y dz = \int _0^1 t i \, dt = i/2$, and 
+    $$ \int _{C_3} y dz = \int _0^1 \im \left( \sqrt{2} (1-t) e^{i\pi /4} \right) \left(- \sqrt{2} e ^{i\pi 4} \, dt \right) = -1/2 - i/2$$ 
+    since the real part equals the imaginary part as noted before.
+    Thus $\int _{\partial T} y \, dz = 0 + i/2 + -1/2 - i/2 = -1/2$.
     \part Use the results from part (a) to find $\ds \int_{\partial T} z
-    \, dz$ and $\ds \int_{\partial T} \bar{z} \, dz$.
+    \, dz$ and $\ds \int_{\partial T} \bar{z} \, dz$. \\\\
+    Let's begin with $\int _{\partial T} z \, dz = \int _{\partial T} x + iy \, dz = \int _{\partial T} x dz + i \int _{\partial T} y dz = i/2 + i (-1/2) = 0$.
+    Then for $\int _{\partial T} \bar z \, dz = \int_{partial T} x - iy \, dz = \int _{\partial T} x \, dz - i \int _{\partial T} y \, dz = i/2 - i (-1/2) = i$.
     \part One of the integrals in part (b) can be evaluated without
     explicit integration, using instead a theorem from
-    class/textbook. Explain and use this to double-check your result.
+    class/textbook. Explain and use this to double-check your result. \\\\
+    We know that the integral on a closed loop of an analytic function (on the interior of the loop) is 0.
+    $f(z) = z$ is analytic everywhere and $\partial T$ is a closed loop so the integral must be 0.
   \end{parts}
 
   \question For $R>1$, let $C_R$ be the positively oriented circle of
   radius $R$ about the origin.
   \begin{parts}
     \part Show that $\ds \left| \int_{C_R} \frac{\Log z}{z^2} \, dz
-    \right| \le 2\pi \left( \frac{\pi + \ln R}{R}\right)$.
-    \part Conclude that $\ds \lim_{R\to\infty} \int_{C_R} \frac{\Log
-      z}{z^2} \, dz = 0$.
+    \right| \le 2\pi \left( \frac{\pi + \ln R}{R}\right)$. \\\\
+    Recall that $\Log z = \ln |z| + i \Arg z$.
+    Then $$ \left| \int _{C_R} \frac{\Log z}{z^2} \, dz \right| \leq \int _{C_R} \left| \frac{\Log z}{z^2} \right| \, dz = \int _{C_R} \frac{\left| \ln |z| + i \Arg z \right|}{|z^2|} \, dz
+    = \int _{C_R} \frac{| \ln R + i \Arg z |}{R^2} \, dz$$
+    where the final equality is justified since $|z| = R$ on $C_R$.
+    Now we want to choose the maximum value for the value of the integrand along the path $C_R$.
+    Then $| \ln R + i Arg z | = \sqrt{ (\ln R)^2 + (\Arg z)^2 } \leq \sqrt{ (\ln R)^2 + \pi ^2}$ since largest magnitude of the function $\Arg$ is $\{ \pi, -\pi \}$. 
+    Then by the triangle inequality for real numbers, $\sqrt{ (\ln R)^2 + \pi ^2 } \leq \ln R + \pi$.
+    Then we have
+    $$ \left| \int _{C_R} \frac{\Log z}{z^2} \, dz \right| \leq \int _{C_R} \frac{\pi + \ln R}{R^2} \, dz = 2\pi R \left( \frac{\pi + \ln R}{R^2} \right) = 2 \pi \left( \frac{\pi + \ln R}{R} \right) $$
+    \part Conclude that $\ds \lim_{R\to\infty} \int_{C_R} \frac{\Log z}{z^2} \, dz = 0$. \\\\
+    To deduce this, take the limit on both sides of the inequality proved in part (a).
+    The RHS is 
+    $$\lim _{R \to \infty} 2 \pi \left( \frac{\pi + \ln R}{R} \right)
+    = \lim _{R \to \infty} 2 \pi /R = 0$$
+    by L'Hopital's rule (which we can use since we are only dealing with a real valued limit).
+    So we have just shown that the magnitude of the integral is less than or equal 0 as $R \to \infty$, which implies the value of the integral is 0.
   \end{parts}
 
 \end{questions}
