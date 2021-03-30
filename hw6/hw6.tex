@@ -1,0 +1,104 @@
+\documentclass[11pt]{exam}
+\usepackage{amsmath,amssymb}
+%\usepackage[margin=1.5in]{geometry}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathbb{\hat{C}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\ds}{\displaystyle}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\begin{document}
+\centerline{\Large M 472 -- Homework 6}
+\vspace{2ex}
+\centerline{\Large Series}
+\vspace{3ex}
+\centerline{Due Monday, March 29, on Gradescope}
+\vspace{3ex}
+%\maketitle
+\thispagestyle{empty}
+\begin{questions}
+  \question
+  \begin{parts}
+    \part Find the Maclaurin series (Taylor series centered at
+    $z=0$) for the function $\ds f(z) = e^{-z^2}$. \\\\
+    We know the Maclaurin series for $e^w = 1 + w + w^2 /2! + w^3 / 3! + \cdots$.
+    Here we have $w = -z^2$ so the Maclaurin series turns into $1 - z^2 + z^4 /2! - z^6 /3! + z^8 /4! + \cdots$.
+    \part Find the Maclaurin series for the function $\ds
+    F(z) = \int_0^z e^{-\zeta^2} \, d\zeta$.\\ (Since the integrand is
+    an entire function, the integral is independent of path, i.e.,
+    $F(z)$ can be evaluated by integrating along any piecewise smooth
+    path from $0$ to $z$.) \\\\
+    Since the integral is independent of the path, we can just compute the antiderivative and evaluate $F(z) - F(0)$.
+    The antiderivate can be computed term by term (as long as we have absolute convergence):
+    \begin{align*}
+        F(z) &= \int _0^z e^{-\zeta ^2} d \zeta \\
+             &= \int _0^z \sum _{n=0}^\infty \frac{(-1)^n \zeta^{2n}}{n!} d\zeta \\
+             &= \sum _{n=0}^\infty \frac{(-1)^n}{n!} \int _0^z \zeta ^{2n} d\zeta \\
+             &= \left. \sum _{n=0}^\infty \frac{(-1)^n}{(2n+1)n!} \zeta ^{2n+1} \right| _0^z \\
+             &= \sum _{n=0}^\infty \frac{(-1)^n}{(2n+1)n!} z ^{2n+1}
+    \end{align*}
+  \end{parts}
+
+  \question
+  Find the Laurent series of $\ds f(z) = \frac{z}{(z-1)(z+2)}$ in the
+  annulus $\{ 1<|z|<2 \}$. (Hint: Your first step should be a partial
+  fraction decomposition.) \\\\
+  We have $\ds f(z) = z \frac{1}{(z-1)(z+2)} = z \left( \frac{1/3}{z-1} + \frac{-1/3}{z+2} \right) = \frac{z}{3} \left( \frac{1}{z-1} + \frac{1}{z+2} \right)$ by partial fraction decomposition.
+  Then $\ds \frac{1}{z-1} = \frac{1}{z} \frac{1}{1-1/z} $ and recalling that $1 < |z|$ allows us to expand into a power series:
+  $$\ds \frac{1}{z} \left( 1 + 1/z + 1/z^2 + 1/z^3 + \cdots \right) = 1/z \sum _{n=0}^\infty \frac{1}{z^n} = \sum _{n=0}^\infty \frac{1}{z^{n+1}} = \sum _{n=-\infty}^{-1} z^n $$
+  On the other hand, $\ds \frac{1}{z+2} = \frac{1}{2} \frac{1}{1 - (-z/2)}$ and since $|z| < 2$ we expand to get
+  $$ \frac{1}{2} \sum _{n=0}^\infty \left( \frac{-z}{2} \right)^n
+  = \frac{1}{2} \sum _{n=0}^\infty \frac{(-1)^n z^n}{2^n}
+  = \sum _{n=0}^\infty \frac{(-1)^n z^n}{2^{n+1}} $$
+  This gives us the final Laurent series as
+  $$ f(z)
+  = z \left( \sum _{n=-\infty}^{-1} z^n + \sum _{n=0}^\infty \frac{(-1)^n z^n}{2^{n+1}} \right)
+  = \sum _{n=-\infty}^{-1} z^{n+1} + \sum _{n=0}^\infty \frac{(-1)^n z^{n+1}}{2^{n+1}}
+  $$
+
+  \question
+  \begin{parts}
+    \part Find the Laurent series of $\ds f(z) = \frac{\sin z}{z}$,
+    $\ds g(z) = \frac{\cos z}{z}$, and $\ds h(z) = \frac{\cos z}{z^2}$ in
+    $\C^* = \C \setminus \{ 0 \}$. \\\\
+    $$ f(z) = \frac{\sin z}{z} = \frac{z - z^3/3! + z^5/5! + \cdots}{z}
+    = 1 - z^2/3! + z^4/5! - \cdots = \sum _{n=0}^\infty \frac{(-1)^n}{(2n+1)!} z^{2n} $$
+    $$ g(z) = \frac{\cos z}{z} = \frac{1 - z^2/2! + z^4/4! - \cdots}{z}
+    = 1/z - z/2! + z^3/4! - \cdots = \sum _{n=0}^\infty \frac{(-1)^n}{(2n)!} z^{2n-1} $$
+    $$ h(z) = \frac{\cos z}{z^z} = \frac{1 - z^2/2! + z^4/4! - \cdots}{z^2}
+    = 1/z^2 - 1/2! + z^2/4! - \cdots = \sum _{n=0}^\infty \frac{(-1)^n}{(2n)!} z^{2n-2}$$
+    \part Which of the functions in (a) are entire? \\\\
+    The only function from part (a) that is entire is $f(z)$.
+    Both $g(z)$ and $h(z)$ have singularities at 0 so they are not entire.
+    However, the power series expansion of $f(z)$ is entire, so $f(z)$ can be adapted to be entire.
+    \part For each of the functions in (a), find the Laurent series of
+    their antiderivative in $\C^*$ or explain why no such
+    antiderivative exists. \\\\
+    The antiderivative of $f(z)$ is $F(z) = \sum _{n=0}^\infty \frac{(-1)^n}{(2n+1)(2n+1)!} z^{2n+1}$ and the antiderivate of $h(z)$ is $H(z) = \sum _{n=0}^\infty \frac{(-1)^n}{(2n-1)(2n)!} z^{2n-1}$.
+    The function $g(z)$ has no antiderivate since the integral of $1/z$ has a branch cut.
+  \end{parts}
+
+  \question Assume that $\ds f(z) = \sum_{n=-\infty}^\infty a_n z^n$
+  is a Laurent series which converges in some annulus containing the
+  circle $\{ |z|=r \}$. Find $\ds \int_{|z|=r} f(z) \, dz$ and $\ds
+  \int_{|z|=r} \overline{f(z)} \, dz$ in terms of the coefficients
+  $(a_n)$ and the radius $r$. \\ (Hint for the second integral: On the
+  circle $|z|=r$ we have that $z \bar{z} = r^2$, so $\bar{z} =
+  \frac{r^2}{z}$.) \\\\
+  We wish to compute $\int _{|z|=r} f(z) dz$ given that $f(z)$ has a Laurent series.
+  $$\int _{|z|=r} f(z) dz = \int _{|z|=r} \sum _{n=-\infty}^\infty a_n z^n dz = \sum _{n=-\infty}^\infty a_n \int _{|z| = r} z^n dz = 2 \pi i a_{-1}$$
+  where the final step is justified since $\int _{|z| = r} z^n dz = 0$ when $n \neq -1$ and $\int _{|z| = r} ^n dz = 2 \pi i$ when $n = -1$.
+  Now for $\overline{f(z)}$ we use the hint that $\bar z = r^2/z$:
+  $$ \int _{|z|=r} \overline{f(z)} dz = \int _{|z|=r} \sum _{n=-\infty}^\infty \overline{a_n z^n} dz
+  = \int _{|z|=r} \sum _{n=-\infty}^\infty \overline{a_n} (\overline{z})^n dz
+  = \sum _{n=-\infty}^\infty \overline{a_n} \int _{|z|=r} \left( \frac{r^2}{z} \right) ^n dz$$
+  $$
+  = \sum _{n=-\infty}^\infty \overline{a_n} r^{2n} \int _{|z|=r} z^{-n} dz
+  = 2 \pi i r^2 \overline{a_1} $$
+  where the final simplification is justified similarly to the previous integral.
+
+\end{questions}
+\end{document}
