@@ -1,0 +1,72 @@
+\documentclass[11pt]{exam}
+\usepackage{amsmath,amssymb,multicol}
+\usepackage[margin=.9in]{geometry}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathbb{\hat{C}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\ds}{\displaystyle}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator*{\Res}{Res}
+\begin{document}
+\centerline{\Large M 472 -- Homework 7}
+\vspace{2ex}
+\centerline{\Large Series}
+\vspace{3ex}
+\centerline{Due Friday, April 23, on Gradescope}
+\vspace{3ex}
+%\maketitle
+\thispagestyle{empty}
+\begin{questions}
+  \question In each case, write the principal part of the function at
+  its isolated singular point (i.e., the part of the Laurent series
+  with negative exponents), and determine whether that point is a
+  removable singularity, a pole, or an essential singularity.
+  \begin{multicols}{2}
+    \begin{parts}
+      \part $\ds z^2 \sin \frac1z$
+      \part $\ds \frac{z^2}{1+z}$
+      \part $\ds \frac{1-\cos z}{z^2}$
+      \part $\ds \frac{1-\cos z}{z^3}$
+    \end{parts}
+  \end{multicols}
+  \question Evaluate the following residues.
+  \begin{multicols}{2}
+    \begin{parts}
+      \part $\ds \Res_{z=2i} \left[ \frac{1}{z^2+4} \right]$
+      \part $\ds \Res_{z=2i} \left[ \frac{e^{ix}}{(z^2+1)(z^2+4)}
+      \right]$
+      \part $\ds \Res_{z=0} \left[ z^2 \sin \frac1z \right]$
+      \part $\ds \Res_{z=0} \left[ \frac{\sin z}{1-\cos z} \right]$
+    \end{parts}
+  \end{multicols}
+  
+  \question Use residues to find the following integrals:
+  \begin{multicols}{2}
+    \begin{parts}
+      \part $\ds \int_{-\infty}^\infty \frac{dx}{x^2+4}$
+      \part $\ds \int_{-\infty}^\infty \frac{dx}{(x^2+1)(x^2+4)}$
+      \part $\ds \int_{-\infty}^\infty \frac{\cos x}{(x^2+1)(x^2+4)}
+      \, dx$
+      \part $\ds \int_0^{2\pi} \frac{\cos \theta}{5+4 \cos \theta} \,
+      d\theta$
+    \end{parts}
+  \end{multicols}
+
+  \question Consider the function $\ds f(z) = \frac{\csc (\pi z)}{z^2}
+  = \frac{1}{z^2 \sin (\pi z)}$. Following the example in class used
+  to evaluate the series $\ds \sum_{n=1}^\infty \frac{1}{n^2}$, we
+  define $D_N$ to be the square region in the complex plane with
+  vertices $\pm (N+1/2) \pm i (N+1/2)$. Again, just as in class, the
+  $ML$-estimate, combined with explicit formulas for $f(z)$ on the
+  boundary $\partial D_N$, can be used to show that $\ds
+  \lim_{N\to\infty} \int_{\partial D_N} f(z) \, dz = 0$. (You can take
+  this limit for granted, no need to show this.) Applying the Residue
+  Theorem, as we did in the similar example in class, you will get the
+  explicit value of some infinite series. Which infinite series is this,
+  and what is its sum?
+\end{questions}
+\end{document}
